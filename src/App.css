@@ -1,1 +1,19 @@
 
+.map-container {
+    height: 450px
+}
+
+.map-container img {
+    margin: auto;
+    padding: 10px;
+    display: block;
+    width: 200px;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 0;
+}
