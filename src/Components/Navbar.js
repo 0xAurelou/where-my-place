@@ -26,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   icon: {
+    fontSize :"huge",
+    height : '80px',
     paddingLeft: "80px",
     alignItems: "right",
   },
