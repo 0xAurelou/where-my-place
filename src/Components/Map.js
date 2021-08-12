@@ -11,7 +11,7 @@ function Map({ origin, destination }) {
   const [zoom, setZoom] = useState(10);
 
   //You should get your API key at https://opentripmap.io
-  var apiKey = '5ae2e3f221c38a28845f05b66447f16fc3298981969822996d987309';
+  let apiKey = '5ae2e3f221c38a28845f05b66447f16fc3298981969822996d987309';
 
   function apiGet(method, query) {
     return new Promise(function (resolve, reject) {
@@ -139,6 +139,18 @@ function Map({ origin, destination }) {
         },
         'opentripmap-pois',
       );
+
+      let language = 'fr'
+  
+      map.current.getStyle().layers.forEach((layer) => {
+        if (layer.id.endsWith('-label')) {
+            map.current.setLayoutProperty(layer.id, 'text-field', [
+                'coalesce',
+                ['get', 'name_' + language],
+                ['get', 'name'],
+            ]);
+        }
+    });
     });
 
     //Show information by click
@@ -152,7 +164,7 @@ function Map({ origin, destination }) {
         poi.innerHTML += "<img src='" + data.preview.source + "'>";
       }
       poi.innerHTML += data.wikipedia_extracts
-        ? data.wikipedia_extracts.html
+        ? utils.translateToFr(data.wikipedia_extracts.html)
         : data.info
         ? data.info.descr
         : 'No description';
@@ -162,7 +174,10 @@ function Map({ origin, destination }) {
         data.otm +
         "'>Show more at OpenTripMap</a></p>";
 
-      new mapboxgl.Popup().setLngLat(lngLat).setDOMContent(poi).addTo(map.current);
+      new mapboxgl.Popup()
+        .setLngLat(lngLat)
+        .setDOMContent(poi)
+        .addTo(map.current);
     }
 
     map.current.on('click', 'opentripmap-pois', function (e) {

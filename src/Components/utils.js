@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 var layer_names = {
   tidal_islands: { n: 'tidal island [s]', e: 'ðŸï¸' },
   inland_islands: { n: 'inland island [s]', e: 'ðŸï¸' },
@@ -554,4 +556,20 @@ function getCategoryName(kinds) {
   return names.join(', ');
 }
 
-export default { getCategoryName };
+function translateToFr(text) {
+  const instance = axios.create({
+    headers: {
+      Authorzation: 'DeepL-Auth-Key eaae3cc7-a694-0fe6-0af0-aa4c66603ffd:fx',
+      Origin: 'https://localhost:3000',
+    },
+  });
+
+  instance.post('https://api-free.deepl.com/v2/translate', {
+    text,
+    target_lang: 'FR',
+  });
+}
+
+const utils = { getCategoryName, translateToFr };
+
+export default utils;
