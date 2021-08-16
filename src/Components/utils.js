@@ -556,18 +556,26 @@ function getCategoryName(kinds) {
   return names.join(', ');
 }
 
-function translateToFr(text) {
+function translateToFr(text, html) {
   const instance = axios.create({
     headers: {
-      Authorzation: 'DeepL-Auth-Key eaae3cc7-a694-0fe6-0af0-aa4c66603ffd:fx',
-      Origin: 'https://localhost:3000',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
   });
 
-  instance.post('https://api-free.deepl.com/v2/translate', {
-    text,
-    target_lang: 'FR',
-  });
+  const params = new URLSearchParams();
+  params.append('text', text);
+  params.append('target_lang', 'FR');
+  params.append('auth_key', 'eaae3cc7-a694-0fe6-0af0-aa4c66603ffd:fx');
+  console.log('test');
+  instance
+    .post('https://api-free.deepl.com/v2/translate', params)
+    .then((response) => {
+      console.log('fck');
+      console.log(response);
+      document.getElementById('translated').innerHTML =
+        response.data.translations[0].text;
+    });
 }
 
 const utils = { getCategoryName, translateToFr };

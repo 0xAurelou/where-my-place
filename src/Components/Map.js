@@ -140,17 +140,17 @@ function Map({ origin, destination }) {
         'opentripmap-pois',
       );
 
-      let language = 'fr'
-  
+      let language = 'fr';
+
       map.current.getStyle().layers.forEach((layer) => {
         if (layer.id.endsWith('-label')) {
-            map.current.setLayoutProperty(layer.id, 'text-field', [
-                'coalesce',
-                ['get', 'name_' + language],
-                ['get', 'name'],
-            ]);
+          map.current.setLayoutProperty(layer.id, 'text-field', [
+            'coalesce',
+            ['get', 'name_' + language],
+            ['get', 'name'],
+          ]);
         }
-    });
+      });
     });
 
     //Show information by click
@@ -164,10 +164,13 @@ function Map({ origin, destination }) {
         poi.innerHTML += "<img src='" + data.preview.source + "'>";
       }
       poi.innerHTML += data.wikipedia_extracts
-        ? utils.translateToFr(data.wikipedia_extracts.html)
+        ? '<div id="translated">Loading...</div>'
         : data.info
         ? data.info.descr
         : 'No description';
+      if (data.wikipedia_extracts) {
+        utils.translateToFr(data.wikipedia_extracts.html);
+      }
 
       poi.innerHTML +=
         "<p><a target='_blank' href='" +
