@@ -571,8 +571,6 @@ function translateToFr(text, html) {
   instance
     .post('https://api-free.deepl.com/v2/translate', params)
     .then((response) => {
-      console.log('fck');
-      console.log(response);
       document.getElementById('translated').innerHTML =
         response.data.translations[0].text;
     });
