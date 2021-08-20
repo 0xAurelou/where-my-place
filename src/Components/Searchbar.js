@@ -14,6 +14,7 @@ function Searchbar() {
           setSearchTerm(event.target.value);
         }}
       />
+      {/*
       {JSONDATA.filter((val) =>{
           if(searchTerm == "")
           {
@@ -28,6 +29,7 @@ function Searchbar() {
           </div>
         );
       })}
+    */}
     </div>
   );
 }

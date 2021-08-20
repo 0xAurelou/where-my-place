@@ -86,7 +86,6 @@ function Navbar() {
               <btn>
                 <Brightness4Icon
                   className={classes.icon}
-                  OnClick={console.log('Floup')}
                 ></Brightness4Icon>
               </btn>
             </div>
