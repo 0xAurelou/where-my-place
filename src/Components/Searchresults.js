@@ -2,19 +2,22 @@ import React from 'react';
 import '../Styles/Searchresults.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import StarIcon from "@material-ui/icons/Star";
+import { Button } from '@material-ui/core';
 
 function SearchResult({
-    img,
+    image,
     location,
     title,
-    description,
+    type,
     star,
-    price,
-    total,
+    url,
 }) {
     return (
         <div className='searchResult'>
-            <img src={img} alt="" />
+            <div className="image_search">
+            <img src={image} alt=""/>
+            </div>
+            
             <FavoriteBorderIcon className="searchResult__heart" />
 
             <div className='searchResult__info'>
@@ -22,7 +25,7 @@ function SearchResult({
                     <p>{location}</p>
                     <h3>{title}</h3>
                     <p>____</p>
-                    <p>{description}</p>
+                    <p>{type}</p>
                 </div>
 
                 <div className="searchResult__infoBottom">
@@ -32,9 +35,14 @@ function SearchResult({
                             <strong>{star}</strong>
                         </p>
                     </div>
-                    <div className='searchResults__price'>
-                        <h2>{price}</h2>
-                        <p>{total}</p>
+                    <div className="btn_detail">
+                    
+                    <Button variant="contained" color="secondary" >
+                        <a href={url} target="_blank" >Detail</a>
+                        
+                        </Button>
+
+
                     </div>
                 </div>
             </div>

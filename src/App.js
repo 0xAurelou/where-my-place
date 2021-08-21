@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Navbar from './Components/Navbar';
 import Map from './Components/Map';
 import { Container } from '@material-ui/core';
-import SearchResult from './Components/Searchresults';
+import SearchPage from './Components/Searchelement';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item sm={6}>
-          <SearchResult/>
+          <SearchPage/>
           </Grid>
           <Grid item sm={6}>
             

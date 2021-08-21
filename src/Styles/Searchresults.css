@@ -5,6 +5,7 @@
     padding: 20px;
     border-bottom: 1px solid lightgray;
     cursor: pointer;
+    width: 450px;
   }
 
 .searchResult:hover {
@@ -12,9 +13,10 @@
 }
 
 .searchResult > img {
-    height: 200px;
-    width: 350px;
-    border-radius: 10px;
+    width:auto;
+    height: auto;
+    display: flex;
+    border-radius: 0px;
     overflow: hidden;
 }
 
@@ -38,6 +40,12 @@
 .searchResult__infoTop > h3 {
     font-weight: 300;
     margin-top: 10px;
+}
+
+.btn_detail {
+    position: absolute;
+    display: flex;
+    right: 50px;
 }
 
 .searchResult__infoTop > p {
@@ -70,5 +78,12 @@
     position: absolute;
     bottom: 20px;
     right: 30px;
+}
+
+a {
+    color: white;
+}
+a:visited {
+    background: cornflowerblue;
 }
 

@@ -6,38 +6,13 @@ import JSONDATA from '../data/final_data.json';
 function SearchPage() {
     return (
         <div className='searchPage'>
-            <div className='searchPage__info'>
-                <p>62 stays · 26 august to 30 august · 2 guest</p>
-                <h1>Stays nearby</h1>
-                <Button variant="outlined">Cancellation Flexibility</Button>
-                <Button variant="outlined">Type of place</Button>
-                <Button variant="outlined">Price</Button>
-                <Button variant="outlined">Rooms and beds</Button>
-                <Button variant="outlined">More filters</Button>
-            </div>
             <SearchResult
-                img= {this.props.JSONDATA.map((image) => 
-                {
-                    return <SearchResult img={image} key={key}/>
-                })}
-                location= {this.props.JSONDATA.map((adress) => 
-                    {
-                        return <SearchResult adress={adress} key={key}/>
-                    })}
-                title= {this.props.JSONDATA.map((title) => 
-                    {
-                        console.log(JSONDATA[0].title)
-                        return <SearchResult title={title} key={key}/>
-                    })}
-                description= {this.props.JSONDATA.map((type) => 
-                    {
-                        return <SearchResult description ={type} key={key}/>
-                    })}
-                star={this.props.JSONDATA.map((totalscore) => 
-                    {
-                        return <SearchResult star={totalscore} key={key}/>
-                    })}
-                
+                img = "https://www.stampaprint.fr/blog/wp-content/uploads/2016/06/google-logo-lettera-2016.jpg"
+                location="1 Rue Oberkampf, 75011 Paris, France"
+                title="L'autobus"
+                type="Bar"
+                star={4.1}
+                url = "https://www.google.com/maps/place/L'autobus/@48.8627665,2.3652121,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66e077d0166c3:0x14ebb4a7c62ed732!8m2!3d48.8627638!4d2.3674016?hl=fr "
             />
         </div>
     )
