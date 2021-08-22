@@ -1,37 +1,27 @@
-import React from "react";
-import { useState } from "react";
-import JSONDATA from "../data/final_data.json";
-import '../Styles/Searchbar.css';
+/* eslint-disable no-use-before-define */
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import JSONDATA from '../data/final_data.json';
 
-function Searchbar() {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function SearchBar() {
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(event) => {
-          setSearchTerm(event.target.value);
-        }}
+    <div style={{ width: 600 }}>
+      <Autocomplete
+        freeSolo
+        id="free-solo-2-demo"
+        disableClearable
+        options={JSONDATA.map((option) => option.address)}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Search input"
+            margin="normal"
+            variant="outlined"
+            InputProps={{ ...params.InputProps, type: 'search' }}
+          />
+        )}
       />
-      {/*
-      {JSONDATA.filter((val) =>{
-          if(searchTerm == "")
-          {
-              return 
-          }else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())){
-              return val
-          }
-      }).map((val, key) => {
-        return (
-          <div className="title" key={key}>
-            <p>{val.title}</p>
-          </div>
-        );
-      })}
-    */}
     </div>
   );
 }
-
-export default Searchbar;
