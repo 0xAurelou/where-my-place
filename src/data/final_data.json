@@ -1,5 +1,21 @@
 [
   {
+    "address": "10 Rue Descartes, 75005 Paris",
+    "categoryName": "Bar",
+    "city": "Paris",
+    "image": "https://www.google.com/maps/uv?pb=!1s0x47e671e60d92fa37%3A0x891b5949b0e2cd87!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMLafuvluDJYc0XjfF1Xq5nR9NZT8qci9chnT_x%3Dw240-h160-k-no!5sgoogle%20maps%20melocoton%20-%20Recherche%20Google!15sCgIgAQ&imagekey=!1e10!2sAF1QipPjaPBIutDUhU1ufd3cQZdXI5YtAACx5YBHmzc9&hl=fr&sa=X&ved=2ahUKEwji5KaByMXyAhUF3IUKHX1pAFwQoiowE3oECF8QAw&cshid=1629667391929159",
+    "isAdvertisement": "TRUE",
+    "location/lat": "4.884.764",
+    "location/lng": "23.486.600",
+    "phone": 33172347424,
+    "postalCode": 75005,
+    "reviewsCount": 255,
+    "title": "Le Melocoton Bar",
+    "star": 4.6,
+    "url": "https://www.google.com/maps/place/Le+Melocoton+Bar/@48.8471018,2.3486569,15z/data=!4m12!1m6!3m5!1s0x0:0x891b5949b0e2cd87!2sLe+Melocoton+Bar!8m2!3d48.8471018!4d2.3486569!3m4!1s0x0:0x891b5949b0e2cd87!8m2!3d48.8471018!4d2.3486569https://www.google.com/maps/place/Le+Melocoton+Bar/@48.8471018,2.3486569,15z/data=!4m12!1m6!3m5!1s0x0:0x891b5949b0e2cd87!2sLe+Melocoton+Bar!8m2!3d48.8471018!4d2.3486569!3m4!1s0x0:0x891b5949b0e2cd87!8m2!3d48.8471018!4d2.3486569",
+    "website": ""
+  },
+  {
     "address": "1 Rue Oberkampf, 75011 Paris, France",
     "categoryName": "Bar",
     "city": "Paris",
