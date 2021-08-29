@@ -3,6 +3,7 @@ import './App.css';
 import Grid from '@material-ui/core/Grid';
 import Navbar from './Components/Navbar';
 import Map from './Components/Map';
+import Form from './Components/Form';
 import { Container } from '@material-ui/core';
 import SearchResult from './Components/Searchresults';
 
@@ -13,6 +14,7 @@ function App() {
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item sm={6}>
+            <Form />
           <SearchResult/>
           </Grid>
           <Grid item sm={6}>

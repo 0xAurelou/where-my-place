@@ -576,6 +576,19 @@ function translateToFr(text, html) {
     });
 }
 
-const utils = { getCategoryName, translateToFr };
+function geocode(text) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open(
+    'GET',
+    `https://eu1.locationiq.com/v1/search.php?key=pk.1068016fbc83f847aece90d1538aa7dc&q=${text}&format=json`,
+    false,
+  );
+  xmlHttp.send(null);
+  let json = JSON.parse(xmlHttp.responseText);
+  console.log(json)
+  return json.filter((x) => x.display_name.includes('Île-de-France'));
+}
+
+const utils = { getCategoryName, translateToFr, geocode };
 
 export default utils;
