@@ -3,12 +3,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import utils from './utils';
 
-function Map({ origin, destination }) {
+function Map({ origin, destination, lon, lat }) {
   const map = useRef(null);
   const mapContainer = useRef(null);
-  const [lng, setLng] = useState(2.3522);
-  const [lat, setLat] = useState(48.8566);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(12);
 
   //You should get your API key at https://opentripmap.io
   let apiKey = '5ae2e3f221c38a28845f05b66447f16fc3298981969822996d987309';
@@ -37,11 +35,17 @@ function Map({ origin, destination }) {
     'pk.eyJ1IjoiYXVyZWxyIiwiYSI6ImNrczBnMjhyZjA5eTUydnBlcHl5b2oyNXoifQ.g2Ap5DmNHltIErjH5YPjww';
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) {
+      map.current.flyTo({
+        center: [lon, lat],
+        zoom: zoom,
+      });
+      return; // initialize map only once
+    }
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [lng, lat],
+      center: [lon, lat],
       zoom: zoom,
     });
 

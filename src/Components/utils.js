@@ -585,8 +585,10 @@ function geocode(text) {
   );
   xmlHttp.send(null);
   let json = JSON.parse(xmlHttp.responseText);
-  console.log(json)
-  return json.filter((x) => x.display_name.includes('Île-de-France'));
+  console.log(json);
+  return json.length
+    ? json.filter((x) => x.display_name.includes('Île-de-France'))
+    : json;
 }
 
 const utils = { getCategoryName, translateToFr, geocode };

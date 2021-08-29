@@ -30,9 +30,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Form() {
+export default function Form({ setLon, setLat }) {
   const classes = useStyles();
   const [typingTimeout, setTypingTimeout] = useState(0);
+  const [name, setName] = useState('Paris');
+  const [value, setValue] = useState('');
 
   return (
     <center>
@@ -41,23 +43,30 @@ export default function Form() {
           <MyLocationIcon />
         </IconButton>
         <InputBase
+          value={value}
           className={classes.input}
           placeholder="Rechercher autour de..."
           onChange={(e) => {
             if (typingTimeout) clearTimeout(typingTimeout);
+            setValue(e.target.value);
 
             setTypingTimeout(
-              setTimeout(
-                () => console.log(utils.geocode(e.target.value)),
-                1000,
-              ),
+              setTimeout(() => {
+                const res = utils.geocode(e.target.value);
+                if (res.length) {
+                  console.log('test');
+                  setLat(Number(res[0].lat));
+                  setLon(Number(res[0].lon));
+                  setName(res[0].display_name);
+                }
+              }, 1000),
             );
           }}
         />
         <IconButton
-          type="submit"
           className={classes.iconButton}
           aria-label="search"
+          onClick={() => setValue(name)}
         >
           <SearchIcon />
         </IconButton>
@@ -70,7 +79,6 @@ export default function Form() {
           <DirectionsIcon />
         </IconButton>
       </Paper>
-      <Paper className={classes.root}></Paper>
     </center>
   );
 }
