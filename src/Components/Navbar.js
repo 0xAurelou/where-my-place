@@ -2,6 +2,7 @@ import React from 'react';
 import Shot from '../Images/shot.png';
 import Shotlogo from '../Images/Where-my-place.png';
 import MenuIcon from '@material-ui/icons/Menu';
+import Searchbar from './Searchbar';
 import AppBar from '@material-ui/core/AppBar';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -65,6 +66,9 @@ function Navbar() {
                 ></img>
               </IconButton>
             </div>
+            {
+              /*
+            
             <div className="navbar-search">
               <TextField
                 id="filled-search"
@@ -74,11 +78,14 @@ function Navbar() {
                 variant="filled"
               />
             </div>
+            */}
+            <div className="Searchbar">
+            <Searchbar/>
+            </div>
             <div>
               <btn>
                 <Brightness4Icon
                   className={classes.icon}
-                  OnClick={console.log('Floup')}
                 ></Brightness4Icon>
               </btn>
             </div>
