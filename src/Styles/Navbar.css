@@ -6,6 +6,7 @@
 
 .navbar-img {
     height: 10%;
+    display: center;
 }
 .navbar > btn {
     padding: 20px;

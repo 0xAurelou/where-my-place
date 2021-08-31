@@ -77,9 +77,7 @@ function Navbar() {
               />
             </div>
             */}
-            <div className="Searchbar">
-            <Searchbar/>
-            </div>
+            
             <div>
               <btn>
                 <Brightness4Icon
