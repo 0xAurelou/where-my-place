@@ -54,7 +54,7 @@ export default function Form({ setLon, setLat, setPlaces }) {
 
   return (
     <center>
-      <Paper component="form" className={classes.root}>
+      <Paper component="form" className={classes.root} onSubmit={(e) => e.preventDefault()}>
         <IconButton
           className={classes.iconButton}
           aria-label="menu"

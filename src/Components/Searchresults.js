@@ -61,13 +61,15 @@ export default function ComplexGrid({ lon, lat, tabValue, places }) {
     return (
       <Paper style={style} key={key}>
         <Grid container spacing={2}>
-          <Grid item>
-            <img
-              className={classes.img}
-              alt="complex"
-              src={results[index].image}
-            />
-          </Grid>
+          {results[index].image && (
+            <Grid item>
+              <img
+                className={classes.img}
+                alt="complex"
+                src={results[index].image}
+              />
+            </Grid>
+          )}
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
@@ -113,7 +115,7 @@ export default function ComplexGrid({ lon, lat, tabValue, places }) {
   return (
     <List
       width={600}
-      height={400}
+      height={450}
       rowCount={results.length}
       rowHeight={232}
       rowRenderer={Place}

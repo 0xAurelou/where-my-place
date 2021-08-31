@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     height: '7px',
   },
   img: {
-    height: '60px',
+    height: '100px',
+    margin: 'auto',
   },
   search: {
     padding: '10px',
@@ -30,69 +31,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'right',
   },
   toolbar: {
-    height: "calc(85px + 20vh)"
-  }
+    height: 'calc(85px + 20vh)',
+  },
 }));
 
 function Navbar() {
   const classes = useStyles();
 
   return (
-    <>
-      <div className="navbar">
-        <AppBar position="fixed" className="navbar-appBar">
-          <Toolbar className="navbar-toolbarColor">
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              className="navbar-menuButton"
-            >
-              <MenuIcon />
-            </IconButton>
-            <div>
-              <IconButton
-                variant="contained"
-                type="submit"
-                className="navbar-button"
-                //onClick={() => dispatch(toggleDarkTheme)}
-              >
-                <img
-                  src={Logo}
-                  className={classes.img}
-                  alt="navbar-logo"
-                ></img>
-              </IconButton>
-            </div>
-            {
-              /*
-            
-            <div className="navbar-search">
-              <TextField
-                id="filled-search"
-                className={classes.search}
-                label="Search"
-                type="search"
-                variant="filled"
-              />
-            </div>
-            */}
-            
-            <div>
-              <btn>
-                <Brightness4Icon
-                  className={classes.icon}
-                ></Brightness4Icon>
-              </btn>
-            </div>
-            <div>
-              <AccountCircleIcon className={classes.icon}></AccountCircleIcon>
-            </div>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <div className={classes.toolbar} />
-    </>
+    <div className={`${classes.root} ${classes.toolbar}`}>
+      <img src={Logo} className={classes.img} alt="navbar-logo" />
+    </div>
   );
 }
 
