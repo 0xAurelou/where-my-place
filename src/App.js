@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '60vh'
+    height: '60vh',
   },
 }));
 
@@ -21,19 +21,24 @@ function App() {
   const [lat, setLat] = useState(48.8588897);
   const [tabValue, setTabValue] = useState(0);
   const [places, setPlaces] = useState([]);
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className="App">
       <Navbar />
       <Container maxWidth="lg">
         <Grid container spacing={3} className={classes.root}>
-          <Grid item sm={6}>
+          <Grid item md={6} sm={12}>
             <Filter tabValue={tabValue} setTabValue={setTabValue} />
             <Form setLon={setLon} setLat={setLat} setPlaces={setPlaces} />
-            <SearchResult lon={lon} lat={lat} tabValue={tabValue} places={places} />
+            <SearchResult
+              lon={lon}
+              lat={lat}
+              tabValue={tabValue}
+              places={places}
+            />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item md={6} sm={12}>
             <Map lon={lon} lat={lat} />
           </Grid>
         </Grid>

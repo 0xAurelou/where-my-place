@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import { List } from 'react-virtualized';
+import { List, AutoSizer } from 'react-virtualized';
 import utils from './utils';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: 500,
+    maxWidth: '100%',
     height: 200,
   },
   image: {
@@ -113,12 +113,16 @@ export default function ComplexGrid({ lon, lat, tabValue, places }) {
   };
 
   return (
-    <List
-      width={600}
-      height={450}
-      rowCount={results.length}
-      rowHeight={232}
-      rowRenderer={Place}
-    />
+    <AutoSizer disableHeight>
+      {({ width }) => (
+        <List
+          width={width}
+          height={450}
+          rowCount={results.length}
+          rowHeight={232}
+          rowRenderer={Place}
+        />
+      )}
+    </AutoSizer>
   );
 }
