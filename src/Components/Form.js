@@ -41,6 +41,9 @@ export default function Form({ setLon, setLat, setPlaces }) {
     setLat(lat);
     setLon(lon);
     console.log(lat, lon);
+    const rgeo = utils.reverseGeocode(lat, lon);
+    setName(rgeo.data[0].label);
+    setValue(rgeo.data[0].label);
   };
 
   const getUserLocation = () => {

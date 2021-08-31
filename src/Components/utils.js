@@ -599,6 +599,19 @@ async function geocode(text) {
     : json;
 }
 
+function reverseGeocode(lat, lon) {
+  let xmlHttp = new XMLHttpRequest();
+  xmlHttp.open(
+    'GET',
+    `http://api.positionstack.com/v1/reverse?access_key=b180ed08657c0ee40df930a551d6d543&query=${lat},${lon}`,
+    false,
+  );
+  xmlHttp.send(null);
+  let json = JSON.parse(xmlHttp.responseText);
+  console.log(json);
+  return json;
+}
+
 function deg2rad(deg) {
   return deg * (Math.PI / 180);
 }
@@ -627,7 +640,6 @@ function getPlaces(lat, lon) {
   );
   xmlHttp.send(null);
   let json = JSON.parse(xmlHttp.responseText);
-  console.log(json);
   return json;
 }
 
@@ -642,6 +654,7 @@ const utils = {
   getDistanceFromLatLonInKm,
   getPlaces,
   getMapsUrl,
+  reverseGeocode,
 };
 
 export default utils;
