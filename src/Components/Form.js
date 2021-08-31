@@ -36,10 +36,27 @@ export default function Form({ setLon, setLat, setPlaces }) {
   const [name, setName] = useState('Paris');
   const [value, setValue] = useState('');
 
+  const setUserLocatiuon = (pos) => {
+    const { latitude: lat, longitude: lon } = pos.coords;
+    setLat(lat);
+    setLon(lon);
+    console.log(lat, lon);
+  };
+
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(setUserLocatiuon);
+    }
+  };
+
   return (
     <center>
       <Paper component="form" className={classes.root}>
-        <IconButton className={classes.iconButton} aria-label="menu">
+        <IconButton
+          className={classes.iconButton}
+          aria-label="menu"
+          onClick={getUserLocation}
+        >
           <MyLocationIcon />
         </IconButton>
         <InputBase
@@ -53,7 +70,7 @@ export default function Form({ setLon, setLat, setPlaces }) {
             setTypingTimeout(
               setTimeout(async () => {
                 const res = await utils.geocode(e.target.value);
-                console.log(res)
+                console.log(res);
                 if (res.length) {
                   console.log('test');
                   setLat(Number(res[0].lat));
@@ -70,14 +87,6 @@ export default function Form({ setLon, setLat, setPlaces }) {
           onClick={() => setValue(name)}
         >
           <SearchIcon />
-        </IconButton>
-        <Divider className={classes.divider} orientation="vertical" />
-        <IconButton
-          color="primary"
-          className={classes.iconButton}
-          aria-label="directions"
-        >
-          <DirectionsIcon />
         </IconButton>
       </Paper>
     </center>

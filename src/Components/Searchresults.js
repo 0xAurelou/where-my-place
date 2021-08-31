@@ -80,12 +80,14 @@ export default function ComplexGrid({ lon, lat, tabValue, places }) {
               </Grid>
 
               <div className="searchResult__infoBottom">
-                <div className="searchResult__stars">
-                  <StarIcon className="searchResult__star" />
-                  <p>
-                    <strong>{results[index].star}</strong>
-                  </p>
-                </div>
+                {results[index].star && (
+                  <div className="searchResult__stars">
+                    <StarIcon className="searchResult__star" />
+                    <p>
+                      <strong>{results[index].star}</strong>
+                    </p>
+                  </div>
+                )}
                 <div className="btn_detail">
                   <Button variant="contained" color="secondary">
                     <a
