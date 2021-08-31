@@ -59,7 +59,6 @@ export default function Form({ setLon, setLat, setPlaces }) {
                   setLat(Number(res[0].lat));
                   setLon(Number(res[0].lon));
                   setName(res[0].postal_address);
-                  setPlaces(utils.getPlaces(Number(res[0].lat), Number(res[0].lon)))
                 }
               }, 1000),
             );

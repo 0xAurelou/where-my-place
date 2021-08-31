@@ -631,12 +631,17 @@ function getPlaces(lat, lon) {
   return json;
 }
 
+function getMapsUrl(place, lat, lon) {
+  return `https://www.google.com/maps/dir/${lat},${lon}/${place.lat},${place.lon}`;
+}
+
 const utils = {
   getCategoryName,
   translateToFr,
   geocode,
   getDistanceFromLatLonInKm,
-  getPlaces
+  getPlaces,
+  getMapsUrl,
 };
 
 export default utils;
