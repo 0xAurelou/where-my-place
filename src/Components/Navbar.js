@@ -1,6 +1,5 @@
 import React from 'react';
-import Shot from '../Images/shot.png';
-import Shotlogo from '../Images/Where_my_place.png';
+import Logo from '../Images/logo-site-removebg-preview.png';
 import MenuIcon from '@material-ui/icons/Menu';
 import Searchbar from './Searchbar';
 import AppBar from '@material-ui/core/AppBar';
@@ -59,7 +58,7 @@ function Navbar() {
                 //onClick={() => dispatch(toggleDarkTheme)}
               >
                 <img
-                  src={Shotlogo}
+                  src={Logo}
                   className={classes.img}
                   alt="navbar-logo"
                 ></img>
