@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Form({ setLon, setLat }) {
+export default function Form({ setLon, setLat, setPlaces }) {
   const classes = useStyles();
   const [typingTimeout, setTypingTimeout] = useState(0);
   const [name, setName] = useState('Paris');
@@ -51,13 +51,15 @@ export default function Form({ setLon, setLat }) {
             setValue(e.target.value);
 
             setTypingTimeout(
-              setTimeout(() => {
-                const res = utils.geocode(e.target.value);
+              setTimeout(async () => {
+                const res = await utils.geocode(e.target.value);
+                console.log(res)
                 if (res.length) {
                   console.log('test');
                   setLat(Number(res[0].lat));
                   setLon(Number(res[0].lon));
-                  setName(res[0].display_name);
+                  setName(res[0].postal_address);
+                  setPlaces(utils.getPlaces(Number(res[0].lat), Number(res[0].lon)))
                 }
               }, 1000),
             );

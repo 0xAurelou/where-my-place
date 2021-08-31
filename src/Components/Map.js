@@ -49,7 +49,13 @@ function Map({ origin, destination, lon, lat }) {
       zoom: zoom,
     });
 
-    map.current.addControl(new mapboxgl.NavigationControl());
+/*    const dotElement = mapboxgl.DOM.create('div', 'mapboxgl-user-location');
+    dotElement.appendChild(mapboxgl.DOM.create('div', 'mapboxgl-user-location-dot'));
+    dotElement.appendChild(mapboxgl.DOM.create('div', 'mapboxgl-user-location-heading'));
+
+    const userLocationDotMarker = new mapboxgl.Marker(dotElement).setLngLat();
+
+    map.current.addControl(new mapboxgl.NavigationControl());*/
 
     map.current.on('load', function () {
       //Stylization

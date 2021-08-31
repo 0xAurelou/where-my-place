@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles/Searchresults.css';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import StarIcon from '@material-ui/icons/Star';
 import JSONDATA from '../data/final_data.json';
 import { Button } from '@material-ui/core';
@@ -9,9 +8,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 
-import { AutoSizer, List } from 'react-virtualized';
+import { List } from 'react-virtualized';
+import utils from './utils';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,8 +32,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ComplexGrid() {
+export default function ComplexGrid({ lon, lat, tabValue, places }) {
   const classes = useStyles();
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    console.log(places)
+    const newJSON = tabValue ? JSONDATA : places;
+    const newResults = newJSON && newJSON
+      .filter((x) => {
+        return utils.getDistanceFromLatLonInKm(lat, lon, x.lat, x.lon) < 4;
+      })
+      .sort((a, b) =>
+        utils.getDistanceFromLatLonInKm(lat, lon, a.lat, a.lon) <
+        utils.getDistanceFromLatLonInKm(lat, lon, b.lat, b.lon)
+          ? -1
+          : 1,
+      );
+
+    console.log(newResults.length);
+    setResults(newResults);
+  }, [lon, lat, tabValue]);
 
   const Place = ({ key, index, isScrolling, isVisible, style }) => {
     return (

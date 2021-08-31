@@ -576,21 +576,67 @@ function translateToFr(text, html) {
     });
 }
 
-function geocode(text) {
+async function geocode(text) {
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open(
     'GET',
-    `https://eu1.locationiq.com/v1/search.php?key=pk.1068016fbc83f847aece90d1538aa7dc&q=${text}&format=json`,
+    `https://eu1.locationiq.com/v1/search.php?key=pk.1068016fbc83f847aece90d1538aa7dc&q=${text}&format=json&matchquality=1&postaladdress=1`,
     false,
   );
   xmlHttp.send(null);
   let json = JSON.parse(xmlHttp.responseText);
   console.log(json);
   return json.length
-    ? json.filter((x) => x.display_name.includes('Île-de-France'))
+    ? json
+        .filter((x) => x.display_name.includes('Île-de-France'))
+        .sort((a, b) =>
+          a.matchquality.matchcode === 'exact'
+            ? -1
+            : b.matchquality.matchcode === 'exact'
+            ? 1
+            : 0,
+        )
     : json;
 }
 
-const utils = { getCategoryName, translateToFr, geocode };
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
+
+function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2 - lat1); // deg2rad below
+  var dLon = deg2rad(lon2 - lon1);
+  var a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) *
+      Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function getPlaces(lat, lon) {
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open(
+    'GET',
+    `https://api.opentripmap.com/0.1/en/places/radius?format=json&rate=3&radius=5000&lon=${lon}&lat=${lat}&apikey=5ae2e3f221c38a28845f05b66447f16fc3298981969822996d987309`,
+    false,
+  );
+  xmlHttp.send(null);
+  let json = JSON.parse(xmlHttp.responseText);
+  console.log(json);
+  return json;
+}
+
+const utils = {
+  getCategoryName,
+  translateToFr,
+  geocode,
+  getDistanceFromLatLonInKm,
+  getPlaces
+};
 
 export default utils;
