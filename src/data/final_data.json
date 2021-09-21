@@ -1,5 +1,37 @@
 [
   {
+    "address": "53 Av. de Fontainebleau, 94270 Le Kremlin-Bicêtre",
+    "categoryName": "Bar",
+    "city": "Kremlin-Bicêtre",
+    "image": "https://www.google.fr/maps/place/La+Place+Rouge+KB/@48.8126188,2.3617843,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMV8L4YPZHy86L6_-hDlWO51QpGBXtX0MIOpL0!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMV8L4YPZHy86L6_-hDlWO51QpGBXtX0MIOpL0%3Dw92-h86-k-no!7i3870!8i3616!4m5!3m4!1s0x47e6717e484ca211:0x137104038c0f74cc!8m2!3d48.8126179!4d2.3617818#",
+    "isAdvertisement": "FALSE",
+    "lat": 48.862725,
+    "lon": 2.287592,
+    "phone": 33146727427,
+    "postalCode": 94270,
+    "reviewsCount": 334,
+    "title": "La PLace Rouge KB",
+    "star": 4,
+    "url": "https://www.google.fr/maps/place/La+Place+Rouge+KB/@48.8126793,2.3616608,21z/data=!4m5!3m4!1s0x47e6717e484ca211:0x137104038c0f74cc!8m2!3d48.8126179!4d2.3617818",
+    "website": "laplacerougekb.com"
+  },
+{
+    "address": "10 Rue Descartes, 75005 Paris",
+    "categoryName": "Bar",
+    "city": "Paris",
+    "image": "https://www.google.fr/maps/place/Le+Melocoton+Bar/@48.8471231,2.3486936,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipMBGmZDdD_THt9qWyhFgt58XzWUxj6OTU5A-6Oa!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMBGmZDdD_THt9qWyhFgt58XzWUxj6OTU5A-6Oa%3Dw224-h298-k-no!7i3456!8i4608!4m7!3m6!1s0x47e671e60d92fa37:0x891b5949b0e2cd87!8m2!3d48.8470324!4d2.3485953!14m1!1BCgIYIA#",
+    "isAdvertisement": "FALSE",
+    "lat": 48.847088,
+    "lon": 2.34865,
+    "phone": 33172347424,
+    "postalCode": 75005,
+    "reviewsCount": 263,
+    "title": "Le Melocoton Bar",
+    "star": 4.5,
+    "url": "https://www.google.fr/maps/place/Le+Melocoton+Bar/@48.8471231,2.3486936,17z/data=!4m14!1m8!3m7!1s0x47e671e60d92fa37:0x891b5949b0e2cd87!2sLe+Melocoton+Bar!8m2!3d48.8470324!4d2.3485953!14m1!1BCgIgAQ!3m4!1s0x47e671e60d92fa37:0x891b5949b0e2cd87!8m2!3d48.8470324!4d2.3485953",
+    "website": ""
+  },
+  {
     "address": "1 Rue Oberkampf, 75011 Paris, France",
     "categoryName": "Bar",
     "city": "Paris",
